@@ -1,0 +1,72 @@
+package com.springapp.mvc;
+
+import com.springapp.logic.Calc;
+import com.springapp.logic.impl.CalcImplDivide;
+import com.springapp.logic.impl.CalcImplMinus;
+import com.springapp.logic.impl.CalcImplMultiply;
+import com.springapp.logic.impl.CalcImplPlus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Controller
+@RequestMapping("/calc")
+public class CalculatorController {
+
+    @Resource(name = "calcImplPlus")
+    private CalcImplPlus calcImplPlus;
+
+    @Resource(name = "calcImplMinus")
+    private CalcImplMinus calcImplMinus;
+
+    @Resource(name = "calcImplMultiply")
+    private CalcImplMultiply calcImplMultiply;
+
+    @Resource(name = "calcImplDivide")
+    private CalcImplDivide calcImplDivide;
+
+
+    @RequestMapping("/")
+    public String showCalc(HttpServletRequest request, HttpServletResponse response){
+
+        return "hello";
+    }
+
+    @RequestMapping(value = "/count", params = "plus")
+    public String plus(@RequestParam("digit1") double digit1,@RequestParam(value = "digit2",required = false, defaultValue = "2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplPlus.calculate(digit1,digit2);
+        model.addAttribute("res", t);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/count",params = "minus")
+    public String minus(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplMinus.calculate(digit1,digit2);
+        model.addAttribute("res", t);
+        System.out.println(t);
+        return "hello";
+    }
+    @RequestMapping(value = "/count",params = "mult")
+    public String multiply(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplMultiply.calculate(digit1,digit2);
+        model.addAttribute("res", t);
+        System.out.println(t);
+        return "hello";
+    }
+    @RequestMapping(value = "/count",params = "divide")
+    public String divide(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplDivide.calculate(digit1,digit2);
+        model.addAttribute("res", t);
+        System.out.println(t);
+        return "hello";
+    }
+}
