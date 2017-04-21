@@ -1,5 +1,6 @@
 package com.springapp.mvc;
 
+import com.springapp.entity.Form;
 import com.springapp.logic.Calc;
 import com.springapp.logic.impl.CalcImplDivide;
 import com.springapp.logic.impl.CalcImplMinus;
@@ -10,13 +11,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 
 @Controller
 @RequestMapping("/calc")
@@ -36,14 +37,15 @@ public class CalculatorController {
 
 
     @RequestMapping("/")
-    public String showCalc(HttpServletRequest request, HttpServletResponse response){
-
+    public String showCalc(Model model){
+        model.addAttribute("MyForm", new Form(7,11));
         return "hello";
     }
 
     @RequestMapping(value = "/count", params = "plus")
-    public String plus(@RequestParam("digit1") double digit1,@RequestParam(value = "digit2",required = false, defaultValue = "2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
-        double t = calcImplPlus.calculate(digit1,digit2);
+    public String plus(@ModelAttribute("MyForm") Form form, Model model, HttpServletRequest request, HttpServletResponse response){
+
+        double t = calcImplPlus.calculate(form.getA(),form.getB());
         model.addAttribute("res", t);
         return "hello";
     }
@@ -69,4 +71,13 @@ public class CalculatorController {
         System.out.println(t);
         return "hello";
     }
+
+    @RequestMapping("/{id1}/{id2}")
+    public String test(Model model, @PathVariable("id1") int id1, @PathVariable("id2") int id2){
+        int t  = id1+id2;
+        model.addAttribute("res", t);
+        return "hello";
+    }
+
+//    @RequestMapping("")
 }
