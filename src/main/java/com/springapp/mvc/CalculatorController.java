@@ -51,22 +51,22 @@ public class CalculatorController {
     }
 
     @RequestMapping(value = "/count",params = "minus")
-    public String minus(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
-        double t = calcImplMinus.calculate(digit1,digit2);
+    public String minus(@ModelAttribute("MyForm") Form form, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplMinus.calculate(form.getA(),form.getB());
         model.addAttribute("res", t);
         System.out.println(t);
         return "hello";
     }
     @RequestMapping(value = "/count",params = "mult")
-    public String multiply(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
-        double t = calcImplMultiply.calculate(digit1,digit2);
+    public String multiply(@ModelAttribute("MyForm") Form form, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplMultiply.calculate(form.getA(),form.getB());
         model.addAttribute("res", t);
         System.out.println(t);
         return "hello";
     }
     @RequestMapping(value = "/count",params = "divide")
-    public String divide(@RequestParam("digit1") double digit1,@RequestParam("digit2") double digit2, Model model, HttpServletRequest request, HttpServletResponse response){
-        double t = calcImplDivide.calculate(digit1,digit2);
+    public String divide(@ModelAttribute("MyForm") Form form, Model model, HttpServletRequest request, HttpServletResponse response){
+        double t = calcImplDivide.calculate(form.getA(),form.getB());
         model.addAttribute("res", t);
         System.out.println(t);
         return "hello";
