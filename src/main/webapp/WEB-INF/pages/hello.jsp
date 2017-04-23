@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <body>
 <jsp:include page="bar.jsp"/>
@@ -22,15 +23,15 @@
     <form:form name="f" action="count" method="post" commandName="MyForm">
         <form:input path="a"/>
         <form:input path="b"/><br>
-        <input class="button" name="plus" type="submit" value="plus"/><br>
-        <input class="button" name="minus" type="submit" value="minus"/><br>
-        <input class="button" name="mult" type="submit" value="multiply"/><br>
-        <input class="button" name="divide" type="submit" value="divide"/><br>
+        <input class="button" name="plus" type="submit" value="<spring:message code="label.plus"/>"/><br>
+        <input class="button" name="minus" type="submit" value="<spring:message code="label.minus"/>"/><br>
+        <input class="button" name="mult" type="submit" value="<spring:message code="label.mult"/>"/><br>
+        <input class="button" name="divide" type="submit" value="<spring:message code="label.divide"/>"/><br>
     </form:form>
 
         <c:if test="${not empty res}">
             <div style="color: lightseagreen">
-                <h3>Result:</h3>
+                <h3><spring:message code="label.result"/></h3>
                     ${res}
             </div>
 

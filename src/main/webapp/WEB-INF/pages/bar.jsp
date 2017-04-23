@@ -1,11 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Николай
-  Date: 21.04.2017
-  Time: 13:47
-  To change this template use File | Settings | File Templates.
---%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,13 +11,17 @@
 </head>
 <body>
 <div id="wrapper">
-    <%--<h1><strong>ClearNav</strong> responsive navigation</h1>--%>
+<%--<div style="float: right; margin-right: 50px">--%>
+    <a style="float: right; margin-right: 50px" href="?lang=en">en</a>
+    |
+    <a style="float: right; margin-right: 50px" href="?lang=ru">ru</a>
+<%--</div>--%>
     <nav role="navigation" id="access">
         <a class="skip-link icon-reorder" title="Accéder au menu" href="#menu">Menu</a>
         <ul id="menu">
-            <li class="active"><a class="icon-home" href="#accueil">Home</a></li><!-- whitespace
-                --><li><a class="icon-group" href="#quisommesnous">About</a></li><!-- whitespace
-                --><li><a class="icon-envelope-alt" href="/logout">Log out</a></li>
+            <li class="active"><a class="icon-home" href="#accueil"><spring:message code="label.bar.1"/></a></li><!-- whitespace
+                --><li><a class="icon-group" href="#quisommesnous"><spring:message code="label.bar.2"/></a></li><!-- whitespace
+                --><li><a class="icon-envelope-alt" href="/logout"><spring:message code="label.bar.3"/></a></li>
         </ul>
     </nav>
 </div>

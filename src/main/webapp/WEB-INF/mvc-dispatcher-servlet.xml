@@ -9,6 +9,7 @@
     <context:component-scan base-package="com.springapp"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8"/>
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
@@ -17,6 +18,36 @@
                    cache-period="31556926"/>
 
     <mvc:annotation-driven />
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:lable" />
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="fileEncodings" value="UTF-8"/>
+    </bean>
+
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lang" />
+    </bean>
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="en"/>
+    </bean>
+
+    <bean id="handlerMapping"
+          class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="interceptors">
+            <ref bean="localeChangeInterceptor" />
+        </property>
+    </bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang" />
+        </bean>
+    </mvc:interceptors>
     <!--<bean id="calc" class="com.springapp.logic.impl.CalcImplPlus">-->
     <!--</bean>-->
 
