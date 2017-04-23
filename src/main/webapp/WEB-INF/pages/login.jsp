@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<div align="center"">
+<div align="center">
 <s:form method="post" commandName="loginForm" action="login">
         <legend><spring:message code="label.formName"/></legend>
         <table>
@@ -37,6 +37,7 @@
             <%--<p><spring:message code="label.login"/></p>--%>
         </table>
 </s:form>
+<p><a style="text-underline: none" href="/reg/">Register if u aren't a bellend!</a></p>
 </div>
 
 
