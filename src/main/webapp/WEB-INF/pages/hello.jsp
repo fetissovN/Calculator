@@ -19,10 +19,13 @@
     <%--<a href="/calc/3/5">link</a>--%>
 
     <div align="center">
+        <p>${name}</p>
         <br>
-    <form:form name="f" action="count" method="post" commandName="MyForm">
+    <form:form name="f" action="count" method="post" commandName="form">
         <form:input path="a"/>
+        <span class="error"><form:errors path="a"/></span>
         <form:input path="b"/><br>
+        <span class="error"><form:errors path="b"/></span>
         <input class="button" name="plus" type="submit" value="<spring:message code="label.plus"/>"/><br>
         <input class="button" name="minus" type="submit" value="<spring:message code="label.minus"/>"/><br>
         <input class="button" name="mult" type="submit" value="<spring:message code="label.mult"/>"/><br>

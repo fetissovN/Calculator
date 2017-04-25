@@ -1,11 +1,24 @@
 package com.springapp.login;
 
-public class RegistrationForm {
+import org.springframework.stereotype.Component;
+
+public class User {
     private String usernameReg;
     private String emailReg;
     private String passwordReg;
+    private String passwordRegCheck;
 
-    public RegistrationForm() {
+
+
+    public User() {
+    }
+
+    public String getPasswordRegCheck() {
+        return passwordRegCheck;
+    }
+
+    public void setPasswordRegCheck(String passwordRegCheck) {
+        this.passwordRegCheck = passwordRegCheck;
     }
 
     public String getUsernameReg() {
