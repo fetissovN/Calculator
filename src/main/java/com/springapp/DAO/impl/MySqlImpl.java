@@ -2,7 +2,7 @@ package com.springapp.DAO.impl;
 
 import com.springapp.DAO.ConnectionDB;
 import com.springapp.DB.MySqlConnect;
-import com.springapp.login.User;
+import com.springapp.entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

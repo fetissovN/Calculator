@@ -1,7 +1,7 @@
 package com.springapp.DAO;
 
 
-import com.springapp.login.User;
+import com.springapp.entity.User;
 
 public interface ConnectionDB {
 //    User getUser();

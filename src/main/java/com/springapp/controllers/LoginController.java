@@ -1,8 +1,8 @@
 package com.springapp.controllers;
 
 import com.springapp.DAO.impl.MySqlImpl;
-import com.springapp.login.LoginForm;
-import com.springapp.login.User;
+import com.springapp.forms.LoginForm;
+import com.springapp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

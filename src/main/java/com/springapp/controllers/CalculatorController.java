@@ -1,6 +1,6 @@
 package com.springapp.controllers;
 
-import com.springapp.entity.Form;
+import com.springapp.forms.Form;
 import com.springapp.logic.impl.CalcImplDivide;
 import com.springapp.logic.impl.CalcImplMinus;
 import com.springapp.logic.impl.CalcImplMultiply;

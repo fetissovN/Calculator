@@ -1,7 +1,7 @@
 package com.springapp.validator;
 
 
-import com.springapp.entity.Form;
+import com.springapp.forms.Form;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

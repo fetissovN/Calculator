@@ -1,6 +1,4 @@
-package com.springapp.login;
-
-import org.springframework.stereotype.Component;
+package com.springapp.entity;
 
 //@Component
 public class User {

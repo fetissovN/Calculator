@@ -1,8 +1,8 @@
 package com.springapp.controllers;
 
 import com.springapp.DAO.impl.MySqlImpl;
-import com.springapp.login.LoginForm;
-import com.springapp.login.User;
+import com.springapp.forms.LoginForm;
+import com.springapp.entity.User;
 import com.springapp.validator.RegFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +37,6 @@ public class RegistrationController {
         model.addAttribute("loginForm", new LoginForm());
         // TODO: 25.04.2017 make name insert with js 
 //        model.addAttribute("name",user.getUsernameReg());
-        return "redirect:/login";
+        return "redirect:/entity";
     }
 }

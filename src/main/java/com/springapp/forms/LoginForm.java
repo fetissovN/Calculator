@@ -1,4 +1,4 @@
-package com.springapp.login;
+package com.springapp.forms;
 
 
 public class LoginForm {

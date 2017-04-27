@@ -1,7 +1,7 @@
 package com.springapp.validator;
 
 
-import com.springapp.login.User;
+import com.springapp.entity.User;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

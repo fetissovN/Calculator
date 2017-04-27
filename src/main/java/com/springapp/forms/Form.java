@@ -1,4 +1,4 @@
-package com.springapp.entity;
+package com.springapp.forms;
 
 
 public class Form {
