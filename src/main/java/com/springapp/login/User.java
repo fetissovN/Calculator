@@ -11,6 +11,12 @@ public class User {
     public User() {
     }
 
+    public User(String usernameReg, String emailReg, String passwordReg) {
+        this.usernameReg = usernameReg;
+        this.emailReg = emailReg;
+        this.passwordReg = passwordReg;
+    }
+
     public String getPasswordRegCheck() {
         return passwordRegCheck;
     }

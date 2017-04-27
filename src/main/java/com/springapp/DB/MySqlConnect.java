@@ -1,4 +1,4 @@
-package com.springapp.connectors.singleton;
+package com.springapp.DB;
 
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -8,7 +8,7 @@ import java.sql.Driver;
 
 
 public class MySqlConnect {
-    private final String url = "jdbc:mysql://localhost/calc?autoReconnect=true&useSSL=false";
+    private final String url = "jdbc:mysql://localhost/Calculator?autoReconnect=true&useSSL=false";
     private final String userName = "root";
     private final String password = "root";
     Connection conn = null;
