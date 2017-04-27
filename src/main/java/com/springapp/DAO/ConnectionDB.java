@@ -10,7 +10,12 @@ public interface ConnectionDB {
 
     User saveNewUser(User user);
 
+    User getUserById(int id);
+
     User deleteUser();
-    boolean checkUserExists();
+
+    boolean checkUserExists(String email);
+
+    boolean checkUserIsReg(String email);
 
 }

@@ -22,7 +22,7 @@ public class MySqlImpl implements ConnectionDB {
             preparedStatement1.setString(1,mail);
             ResultSet resultSet = preparedStatement1.executeQuery();
             if (resultSet.next()){
-                User user = new User(resultSet.getString("name"),resultSet.getString("email"), resultSet.getString("password"));
+                User user = new User(resultSet.getInt("id"), resultSet.getString("name"),resultSet.getString("email"), resultSet.getString("password"));
                 return user;
             }
         } catch (SQLException e) {
@@ -38,9 +38,26 @@ public class MySqlImpl implements ConnectionDB {
         try {
             PreparedStatement preparedStatement = mySqlConnect.getConnection().prepareStatement("INSERT INTO users (name, email, password) VALUES (?,?,?)");
             preparedStatement.setString(1,user.getUsernameReg());
-            preparedStatement.setString(2,user.getEmailReg());
+            preparedStatement.setString(2,user.getEmailReg().toLowerCase());
             preparedStatement.setString(3,user.getPasswordReg());
             preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public User getUserById(int id) {
+        mySqlConnect.connect();
+        try {
+            PreparedStatement preparedStatement1 = mySqlConnect.getConnection().prepareStatement("SELECT * FROM users WHERE id=?");
+            preparedStatement1.setInt(1,id);
+            ResultSet resultSet = preparedStatement1.executeQuery();
+            if (resultSet.next()){
+                User user = new User(resultSet.getString("name"),resultSet.getString("email"), resultSet.getString("password"));
+                return user;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,7 +70,19 @@ public class MySqlImpl implements ConnectionDB {
     }
 
     @Override
-    public boolean checkUserExists() {
+    public boolean checkUserExists(String email) {
+        String emailValidated = email.trim();
+        emailValidated.toLowerCase();
+        User user = getUserByMail(emailValidated);
+        if (user!=null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean checkUserIsReg(String email) {
+
         return false;
     }
 }
