@@ -1,6 +1,5 @@
-package com.springapp.mvc;
+package com.springapp.controllers;
 
-import com.springapp.entity.Form;
 import com.springapp.login.LoginForm;
 import com.springapp.login.User;
 import com.springapp.validator.RegFormValidator;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;

@@ -1,6 +1,5 @@
-package com.springapp.mvc;
+package com.springapp.controllers;
 
-import com.springapp.entity.Form;
 import com.springapp.login.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

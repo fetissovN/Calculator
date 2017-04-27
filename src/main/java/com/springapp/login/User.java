@@ -1,7 +1,5 @@
 package com.springapp.login;
 
-import org.springframework.stereotype.Component;
-
 public class User {
     private String usernameReg;
     private String emailReg;
