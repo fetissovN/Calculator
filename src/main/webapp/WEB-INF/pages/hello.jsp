@@ -5,19 +5,7 @@
 <html>
 <body>
 <jsp:include page="bar.jsp"/>
-	<h1>${message}</h1>
-    <%--<form name='f' action="count" method='POST'>--%>
-	    <%--<input type='text' name='digit1' value=''>--%>
-	    <%--<input type='text' name='digit2' value=''>--%>
-        <%--<input name="plus" type="submit" value="plus"/>--%>
-        <%--<input name="minus" type="submit" value="minus"/>--%>
-        <%--<input name="mult" type="submit" value="multiply"/>--%>
-        <%--<input name="divide" type="submit" value="divide"/>--%>
-
-    <%--</form>--%>
-
-    <%--<a href="/calc/3/5">link</a>--%>
-
+	<h1 align="center" style="color: greenyellow">Hi ${user.getUsernameReg()}, try to do some math! </h1>
     <div align="center">
         <p>${name}</p>
         <br>

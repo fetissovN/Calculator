@@ -37,6 +37,6 @@ public class RegistrationController {
         model.addAttribute("loginForm", new LoginForm());
         // TODO: 25.04.2017 make name insert with js 
 //        model.addAttribute("name",user.getUsernameReg());
-        return "login";
+        return "redirect:/login";
     }
 }

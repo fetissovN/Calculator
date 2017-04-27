@@ -9,8 +9,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sun.security.mscapi.RSASignature;
-
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -40,7 +38,7 @@ public class LoginController {
         User user = mySql.getUserByMail(email);
 	    if (user!=null){
 	    	if (user.getPasswordReg().equals(password)){
-                session.setAttribute("auth", new User(user.getId(), u));
+                session.setAttribute("auth", new User(user.getId(), user.getUsernameReg(),user.getEmailReg()));
                 return "redirect:/calc/";
             }
         }

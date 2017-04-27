@@ -15,10 +15,11 @@ public class User {
     public User() {
     }
 
-    public User(String usernameReg, String emailReg, String passwordReg) {
+    public User(int id, String usernameReg, String emailReg, String passwordReg) {
         this.usernameReg = usernameReg;
         this.emailReg = emailReg;
         this.passwordReg = passwordReg;
+        this.id = id;
     }
 
     public User(int id, String usernameReg, String emailReg) {

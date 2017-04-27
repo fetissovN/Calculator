@@ -55,7 +55,7 @@ public class MySqlImpl implements ConnectionDB {
             preparedStatement1.setInt(1,id);
             ResultSet resultSet = preparedStatement1.executeQuery();
             if (resultSet.next()){
-                User user = new User(resultSet.getString("name"),resultSet.getString("email"), resultSet.getString("password"));
+                User user = new User(resultSet.getInt("id"),resultSet.getString("name"),resultSet.getString("email"), resultSet.getString("password"));
                 return user;
             }
         } catch (SQLException e) {

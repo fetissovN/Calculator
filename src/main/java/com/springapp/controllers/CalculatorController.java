@@ -39,6 +39,7 @@ public class CalculatorController {
         if (session.getAttribute("auth")==null){
             return "redirect:/";
         }
+        model.addAttribute("user", session.getAttribute("auth"));
         model.addAttribute("form", new Form());
         return "hello";
     }
