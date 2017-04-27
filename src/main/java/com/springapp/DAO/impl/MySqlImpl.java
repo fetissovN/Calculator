@@ -3,13 +3,22 @@ package com.springapp.DAO.impl;
 import com.springapp.DAO.ConnectionDB;
 import com.springapp.DB.MySqlConnect;
 import com.springapp.login.User;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.Locale;
 
 @Repository
 public class MySqlImpl implements ConnectionDB {
+
+    @Autowired
+    private MessageSource messageSource;
+
+    private final Logger LOGGER = Logger.getLogger(getClass());
+
     @Autowired
     MySqlConnect mySqlConnect;
 
@@ -44,6 +53,8 @@ public class MySqlImpl implements ConnectionDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        LOGGER.info(messageSource.getMessage("new.user", new Object[] {user}, Locale.ENGLISH));
+
         return null;
     }
 

@@ -67,4 +67,15 @@ public class User {
     public void setPasswordReg(String passwordReg) {
         this.passwordReg = passwordReg;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "usernameReg='" + usernameReg + '\'' +
+                ", emailReg='" + emailReg + '\'' +
+                ", passwordReg='" + passwordReg + '\'' +
+                ", passwordRegCheck='" + passwordRegCheck + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
