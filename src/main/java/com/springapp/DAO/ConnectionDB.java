@@ -8,7 +8,7 @@ public interface ConnectionDB {
 
     User getUserByMail(String email);
 
-    User saveNewUser(String email);
+    User saveNewUser(User user);
 
     User deleteUser();
     boolean checkUserExists();

@@ -3,14 +3,15 @@ package com.springapp.DAO.impl;
 import com.springapp.DAO.ConnectionDB;
 import com.springapp.DB.MySqlConnect;
 import com.springapp.login.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 
 @Repository
 public class MySqlImpl implements ConnectionDB {
-
-    MySqlConnect mySqlConnect = new MySqlConnect();
+    @Autowired
+    MySqlConnect mySqlConnect;
 
     @Override
     public User getUserByMail(String mail) {
@@ -35,7 +36,7 @@ public class MySqlImpl implements ConnectionDB {
 
         mySqlConnect.connect();
         try {
-            PreparedStatement preparedStatement = mySqlConnect.getConnection().prepareStatement("INSERT INTO users (name, email, password) VALUES (?,?,?))");
+            PreparedStatement preparedStatement = mySqlConnect.getConnection().prepareStatement("INSERT INTO users (name, email, password) VALUES (?,?,?)");
             preparedStatement.setString(1,user.getUsernameReg());
             preparedStatement.setString(2,user.getEmailReg());
             preparedStatement.setString(3,user.getPasswordReg());

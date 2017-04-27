@@ -33,7 +33,7 @@ public class RegistrationController {
         if (result.hasErrors()) {
             return "register";
         }
-        mySql.
+        mySql.saveNewUser(user);
         model.addAttribute("loginForm", new LoginForm());
         // TODO: 25.04.2017 make name insert with js 
 //        model.addAttribute("name",user.getUsernameReg());
